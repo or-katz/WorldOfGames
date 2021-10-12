@@ -2,6 +2,8 @@ import GuessGame
 import MemoryGame
 import CurrencyRouletteGame
 import time
+import Utils
+import Score
 
 
 def welcome(name):
@@ -48,10 +50,14 @@ def load_game():
         if won_or_not_game_1:
             print('You won Memory Game!!!')
             time.sleep(1)
+            Utils.screen_cleaner()
+            Score.add_score(difficulty)
             load_game()
         # if lost print game over and quit
         else:
             print('Game Over!!')
+            time.sleep(1)
+            Utils.screen_cleaner()
     # if user select GuessGame
     if game == 2:
         # execute game and save the boolean if won True if lost False
@@ -60,15 +66,23 @@ def load_game():
         if won_or_not_game_2:
             print('You Won Guess Game!!!')
             time.sleep(1)
+            Utils.screen_cleaner()
+            Score.add_score(difficulty)
             load_game()
         # if lost print game over and quit
         else:
             print('Game Over!!')
+            time.sleep(1)
+            Utils.screen_cleaner()
     if game == 3:
         won_or_not_game_3 = CurrencyRouletteGame.play(difficulty)
         if won_or_not_game_3:
             print('You Won Currency Roulette Game!!!')
             time.sleep(1)
+            Utils.screen_cleaner()
+            Score.add_score(difficulty)
             load_game()
         else:
             print('Game Over!!')
+            time.sleep(1)
+            Utils.screen_cleaner()
